@@ -4,5 +4,6 @@ const weathercraftController = require('../controller/weathercraftController');
 
 
 weathercraftRouter.get('/', weathercraftController.renderWeathercraft);
+weathercraftRouter.get('/getWeather', weathercraftController.getWeather);
 
 module.exports = weathercraftRouter

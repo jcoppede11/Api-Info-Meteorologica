@@ -6,7 +6,7 @@
     <title>API - Weathercraft</title>
 </head>
 <body>
-    <div>
+    <!-- <div>
         <div style="margin-bottom: 1rem;">
             <label for="selectCity" style="margin-right: 2rem;">Buscar ciudad:</label>
             <select name="selectCity" id="selectCity">
@@ -14,12 +14,27 @@
             </select>
         </div>
         <div style="margin-bottom: 1rem;">
-            <label for="" style="margin-right: 2rem;">Historial:</label>
-            <input type="text">
+            <label for="history" style="margin-right: 2rem;">Historial:</label>
+            <input type="text" id="history" name="history">
         </div>
         <div>
-            <label for="">Salir</label>
+            <label for="exit">Salir</label>
         </div>
+    </div> -->
+
+    <div>
+        <form method="POST" id="sendWeather" name="sendWeather" enctype="multipart/form-data">
+            <div style="margin-bottom: 1rem;">
+                <label for="latitud" style="margin-right: 2rem;">Latitud: </label>
+                <input type="text" id="latitud" name="latitud">
+            </div>
+    
+            <div style="margin-bottom: 1rem;">
+                <label for="longitud" style="margin-right: 2rem;">Longitud: </label>
+                <input type="text" id="longitud" name="longitud">
+            </div>
+            <button type="submit" id="consult">Consultar</button>
+        </form>
     </div>
 </body>
 </html>
