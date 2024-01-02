@@ -9,11 +9,17 @@ if (process.env.NODE_ENV === 'local') {
     console.error(`Variable de entorno: ${process.env.NODE_ENV} no reconocida.`);
 }
 
+// Setting directory static
 app.use('/weathercraft', express.static(path.join(__dirname, '../public')));
+
+// Setting views
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// Routes
+app.use('/api', require('./routes/weathercraftRoute'));
 
+// Manejo de errores 404
 app.use((req, res, next) => {
     res.status(404).render('404');
 })
