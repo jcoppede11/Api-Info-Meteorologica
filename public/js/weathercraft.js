@@ -3,22 +3,28 @@ $(() => {
 })
 
 function getWeather() {
-    const consultar = $('#consult');
+    const submitConsultar = $('#consultWeather');
 
-    consultar.on('submit', (event) => {
+    submitConsultar.on('submit', (event) => {
         event.preventDefault();
 
+        let latitud = $('#latitud')
+        let longitud = $('#longitud')
+
         const formData = new FormData();
-        formData.append('latitud', $('#lat').val().trim());
-        formData.append('longitud', $('#lon').val().trim());
-    
-        // $.ajax({
-        //     method: 'POST',
-        //     url: '/api/sendConsult/' + idNote,
-        //     data: formData,
-        // })
-    
+        formData.append('lat', latitud.val().trim());
+        formData.append('lon', longitud.val().trim());
+
+        $.ajax({
+            method: 'GET',
+            url: '/weathercraft/api/getWeather',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                const infoApi = $('#infoApi');
+                infoApi.html(`Temperatura: ${data.main.temp}°C, Descripción: ${data.description}`);
+            },
+        })
     })
-
-
 }

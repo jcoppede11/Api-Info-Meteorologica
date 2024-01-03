@@ -8,18 +8,18 @@ const weathercraftController = {
     getWeather: async (req, res) => {
         try {
             const { lat, lon } = req.query;
-            
-        // if (!lat || !lon) {
-        //     return res.status(400).json({ error: 'Se requieren latitud y longitud' });
-        // }
 
-        const weatherData = await openWeather(lat, lon);
-        res.json(weatherData);
+            if (!lat || !lon) {
+                return res.status(400).json({ error: 'Indica una latitud y longitud válida.' });
+            }
 
+            const weatherData = await openWeather(lat, lon);
+            const { main, description } = weatherData;
+            res.json({ main, description });
 
         } catch (error) {
             console.error(error);
-            sendStatus(500);
+            res.status(500).json({ error: 'Error al obtener la información climática.' });
         }
     }
 }

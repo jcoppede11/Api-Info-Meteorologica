@@ -17,7 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Routes
-app.use('/api', require('./routes/weathercraftRoute'));
+app.use('/weathercraft/api', require('./routes/weathercraftRoute'));
 
 // Manejo de errores 404
 app.use((req, res, next) => {
@@ -25,5 +25,5 @@ app.use((req, res, next) => {
 })
 
 app.listen(process.env.PORT, async function () {
-    console.log(`Servidor escuchando en http://localhost:${process.env.PORT}/weathercraft`);
+    console.log(`Servidor escuchando en http://localhost:${process.env.PORT}/weathercraft/api`);
 });

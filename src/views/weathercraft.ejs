@@ -23,7 +23,7 @@
     </div> -->
 
     <div>
-        <form method="POST" id="sendWeather" name="sendWeather" enctype="multipart/form-data">
+        <form method="GET" id="consultWeather" enctype="multipart/form-data">
             <div style="margin-bottom: 1rem;">
                 <label for="latitud" style="margin-right: 2rem;">Latitud: </label>
                 <input type="text" id="latitud" name="latitud">
@@ -35,6 +35,8 @@
             </div>
             <button type="submit" id="consult">Consultar</button>
         </form>
+
+        <p id="infoApi" style="color: brown;"></p>
     </div>
 </body>
 </html>
